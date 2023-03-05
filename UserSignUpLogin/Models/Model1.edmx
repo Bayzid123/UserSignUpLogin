@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ForMyProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblUser">
+          <Key>
+            <PropertyRef Name="IntUserId" />
+          </Key>
+          <Property Name="IntUserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrUserName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="StrEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="StrPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="DteCreatedAt" Type="datetime" />
+          <Property Name="IntCreatedBy" Type="bigint" />
+          <Property Name="DteUpdatedAt" Type="datetime" />
+          <Property Name="IntUpdatedBy" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="ForMyProjectModelStoreContainer">
+          <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForMyProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblUser">
+          <Key>
+            <PropertyRef Name="IntUserId" />
+          </Key>
+          <Property Name="IntUserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StrUserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StrEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StrPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DteCreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="IntCreatedBy" Type="Int64" />
+          <Property Name="DteUpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="IntUpdatedBy" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="ForMyProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForMyProjectModelStoreContainer" CdmEntityContainer="ForMyProjectEntities">
+          <EntitySetMapping Name="TblUsers">
+            <EntityTypeMapping TypeName="ForMyProjectModel.TblUser">
+              <MappingFragment StoreEntitySet="TblUser">
+                <ScalarProperty Name="IntUserId" ColumnName="IntUserId" />
+                <ScalarProperty Name="StrUserName" ColumnName="StrUserName" />
+                <ScalarProperty Name="StrEmail" ColumnName="StrEmail" />
+                <ScalarProperty Name="StrPassword" ColumnName="StrPassword" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DteCreatedAt" ColumnName="DteCreatedAt" />
+                <ScalarProperty Name="IntCreatedBy" ColumnName="IntCreatedBy" />
+                <ScalarProperty Name="DteUpdatedAt" ColumnName="DteUpdatedAt" />
+                <ScalarProperty Name="IntUpdatedBy" ColumnName="IntUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
